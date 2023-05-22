@@ -1,0 +1,60 @@
+{% extends 'Layout/layout.html.twig' %}
+{% block title %}Quiz - Accueil{% endblock %}
+
+{% block content %}
+    <!-- Intro settings -->
+      <style>
+        /* Default height for small devices */
+        #intro-example {
+          height: 400px;
+        }
+
+        /* Height for devices larger than 992px */
+        @media (min-width: 992px) {
+          #intro-example {
+            height: 600px;
+          }
+        }
+      </style>
+
+
+      <!-- Background image -->
+      
+      <div
+        id="intro-example"
+        class="p-5 text-center bg-image"
+        style="
+          background-image: url('assets/images/quiz-header-background.jpg');
+        "
+      >
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.7)">
+          <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="text-white">
+
+            <img src="assets/images/logo.png" alt="logo" height=300>
+              <h1 class="mb-3">Monsters Quizzzz !</h1>
+              <h5 class="mb-4">Un quiz bien meilleur que l'autre quiz !</h5>
+              
+              <div class="jolibtn">
+                <a href ="themes"><button class="jolibutton">Lancer le quiz !</button></a>
+                <a href="login"><button class="jolibutton">Se connecter</button></a>
+                <a href="register"><button class="jolibutton">Créer un compte</button></a>
+              
+              <!-- <a
+                class="btn btn-outline-light btn-lg m-2"
+                href=""
+                target="_blank"
+                role="button"
+                >Se connecter (fonctionnalité à venir)</a
+              > -->
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Background image -->
+      <main>
+    
+    </main>
+
+{% endblock %}

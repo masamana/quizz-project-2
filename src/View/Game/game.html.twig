@@ -1,0 +1,58 @@
+{% extends 'Layout/layout.html.twig' %}
+
+{% block title %} Quiz Time ! {% endblock %}
+{% block content %}
+
+{% set rightAnswer = 0 %}
+
+<div class="titleGame">
+    <h1>Saurez-vous répondre à ces questions ?</h1>
+</div>
+
+{% for question in questions %}
+    <div class="questionReponses">
+        <div class="question">
+            <p><strong>{{question.value}}</strong></p>
+            <div class="iconquiz">
+            <img src="assets/images/icon-quiz.png" alt="iconeQuiz" />
+            </div>
+        </div> 
+
+
+        <div class="answers">
+
+        {% for answer in question.answers %}
+            
+        <a href="/themeselected?id={{themeId}}&questionId={{question.id}}&answerId={{answer.id}}" >
+        
+        {% if answer.selected %}
+
+            {% if answer.is_true %}
+                <button class="answerbutton trueanswer" type="button" >
+                {% set rightAnswer = rightAnswer + 1 %}
+            {% else %}
+                <button class="answerbutton falseanswer" type="button" >
+                
+            {% endif %}
+        {% else %}
+            <button class="answerbutton" type="button">
+        {% endif %}
+                {{answer.value}}
+            </button>
+        </a> 
+
+    {% endfor %}
+        </div>
+</div>
+
+{% endfor %}
+</div>
+
+<form method="post" action="/results">
+    <div class="endButton">
+        <input type="hidden" name="results" value="{{rightAnswer}}">
+        <button type="submit" class="btn-end">Terminer</button>
+    </div>
+</form>
+
+{% endblock %}
